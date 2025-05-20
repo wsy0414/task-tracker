@@ -1,0 +1,8 @@
+tasks.json
+
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+task-tracker
