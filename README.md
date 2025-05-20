@@ -17,7 +17,7 @@ Roadmap Project Challenge: https://roadmap.sh/projects/task-tracker
 1. Ensure you have Golang installed.
 2. Clone the project
 ```
-git clone 
+git clone https://github.com/wsy0414/task-tracker.git
 ```
 3. Build the project
 ```
