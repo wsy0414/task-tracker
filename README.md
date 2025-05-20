@@ -56,4 +56,4 @@ go build -o task-tracker
 ```
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE]() file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/wsy0414/task-tracker/blob/master/LICENSE) file for details.
