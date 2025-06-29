@@ -19,8 +19,8 @@ func NewTaskService(fileName string) *TaskService {
 }
 
 func contentGet(fileName string) ([]model.Task, error) {
-	if !util.CheckFileExist(fileName) {
-		return nil, errors.New("file not exist")
+	if err := util.EnsureFileExists(fileName); err != nil {
+		return nil, fmt.Errorf("failed to ensure file exists: %w", err)
 	}
 
 	tasks, err := util.ReadFile(fileName)
@@ -36,8 +36,15 @@ func (service *TaskService) Add(desc string) error {
 		return err
 	}
 
+	var newID int
+	if len(tasks) == 0 {
+		newID = 1
+	} else {
+		newID = tasks[len(tasks)-1].ID + 1
+	}
+
 	newTask := model.Task{
-		ID:          tasks[len(tasks)-1].ID + 1,
+		ID:          newID,
 		Description: desc,
 		Status:      "todo",
 		CreatedAt:   time.Now().String(),
